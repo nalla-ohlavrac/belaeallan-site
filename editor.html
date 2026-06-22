@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Editor do site | Casamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./editor.css" />
+  </head>
+  <body class="editor-page">
+    <main class="editor-login" id="editor-login">
+      <form class="editor-login__box" id="editor-login-form">
+        <p class="eyebrow">Acesso restrito</p>
+        <h1>Editor</h1>
+        <label>Login<input id="editor-login-user" autocomplete="username" required /></label>
+        <label>Senha<input id="editor-login-password" type="password" autocomplete="current-password" required /></label>
+        <button class="button" type="submit">Entrar no editor</button>
+        <p class="editor-status" id="editor-login-status" role="status"></p>
+      </form>
+    </main>
+
+    <header class="editor-header">
+      <div>
+        <p class="eyebrow">Painel de edição</p>
+        <h1>Site do casamento</h1>
+      </div>
+      <nav class="editor-actions" aria-label="Ações do editor">
+        <a class="button button--ghost" href="./index.html">Abrir site</a>
+        <button class="button" form="site-editor" type="submit">Salvar alterações</button>
+      </nav>
+    </header>
+
+    <main class="editor-shell">
+      <form id="site-editor" class="editor-form">
+        <section class="editor-panel">
+          <h2>Acesso do editor</h2>
+          <p class="editor-help">
+            Altere aqui o login local usado para abrir esta página de edição.
+          </p>
+          <div class="editor-grid">
+            <label>Novo login<input id="editor-new-user" autocomplete="username" /></label>
+            <label>Nova senha<input id="editor-new-password" type="password" autocomplete="new-password" /></label>
+          </div>
+          <div class="editor-actions editor-actions--left">
+            <button class="button" type="button" id="save-editor-access">Alterar acesso</button>
+            <button class="button button--ghost" type="button" id="lock-editor">Bloquear editor</button>
+          </div>
+          <p class="editor-status" id="editor-access-status" role="status"></p>
+        </section>
+
+        <section class="editor-panel" id="supabase-panel">
+          <h2>Supabase</h2>
+          <p class="editor-help">
+            Entre com uma conta autorizada no Supabase para salvar alterações no site publicado.
+          </p>
+          <div class="editor-grid">
+            <label>E-mail admin<input id="admin-email" type="email" autocomplete="email" /></label>
+            <label>Senha admin<input id="admin-password" type="password" autocomplete="current-password" /></label>
+          </div>
+          <div class="editor-actions editor-actions--left">
+            <button class="button" type="button" id="admin-login">Entrar</button>
+            <button class="button button--ghost" type="button" id="admin-logout">Sair</button>
+          </div>
+          <p class="editor-status" id="supabase-status" role="status"></p>
+        </section>
+
+        <section class="editor-panel">
+          <h2>Topo</h2>
+          <div class="editor-grid">
+            <label>Nome do casal<input name="coupleName" /></label>
+            <label>Texto do convite<input name="inviteText" /></label>
+            <label>Data exibida<input name="dateText" /></label>
+            <label>Data da contagem<input name="eventDate" type="datetime-local" /></label>
+            <label>Local exibido<input name="placeText" /></label>
+            <label>Título da aba<input name="pageTitle" /></label>
+          </div>
+          <label>Descrição do site<textarea name="metaDescription" rows="2"></textarea></label>
+        </section>
+
+        <section class="editor-panel">
+          <h2>Menu e contagem</h2>
+          <div class="editor-grid">
+            <label>Menu História<input name="navHistoria" /></label>
+            <label>Menu Local<input name="navLocal" /></label>
+            <label>Menu Presença<input name="navPresenca" /></label>
+            <label>Menu Recados<input name="navRecados" /></label>
+            <label>Chamada da contagem<input name="countdownEyebrow" /></label>
+            <label>Título da contagem<input name="countdownTitle" /></label>
+          </div>
+        </section>
+
+        <section class="editor-panel">
+          <h2>Seções</h2>
+          <div class="editor-stack">
+            <label>Título Nossa história<input name="historyTitle" /></label>
+            <label>Texto Nossa história<textarea name="historyBody" rows="5"></textarea></label>
+            <label>Título Local<input name="locationTitle" /></label>
+            <label>Texto Local<textarea name="locationBody" rows="4"></textarea></label>
+            <div class="editor-grid">
+              <label>Botão Local<input name="locationButton" /></label>
+              <label>Link Google Maps<input name="locationUrl" /></label>
+            </div>
+            <label>Título Dress code<input name="dressTitle" /></label>
+            <label>Texto Dress code<textarea name="dressBody" rows="4"></textarea></label>
+            <label>Título Lista de presentes<input name="giftsTitle" /></label>
+            <label>Texto Lista de presentes<textarea name="giftsBody" rows="4"></textarea></label>
+            <div class="editor-grid">
+              <label>Botão Presentes<input name="giftsButton" /></label>
+              <label>Link Presentes<input name="giftsUrl" /></label>
+            </div>
+            <label>Rodapé<input name="footerText" /></label>
+          </div>
+        </section>
+
+        <section class="editor-panel">
+          <h2>Confirmação</h2>
+          <div class="editor-grid">
+            <label>Título<input name="rsvpTitle" /></label>
+            <label>Nome completo<input name="rsvpNameLabel" /></label>
+            <label>Pergunta<input name="rsvpAttendanceLabel" /></label>
+            <label>Resposta Sim<input name="rsvpYesLabel" /></label>
+            <label>Resposta Não<input name="rsvpNoLabel" /></label>
+            <label>Adultos<input name="rsvpAdultsLabel" /></label>
+            <label>Limite adultos<input name="adultMax" type="number" min="0" max="20" /></label>
+            <label>Crianças<input name="rsvpChildrenLabel" /></label>
+            <label>Limite crianças<input name="childrenMax" type="number" min="0" max="20" /></label>
+            <label>E-mail<input name="rsvpEmailLabel" /></label>
+            <label>Telefone<input name="rsvpPhoneLabel" /></label>
+            <label>Botão<input name="rsvpButton" /></label>
+          </div>
+          <label>Mensagem após envio<input name="rsvpSuccess" /></label>
+        </section>
+
+        <section class="editor-panel">
+          <h2>Recados</h2>
+          <div class="editor-grid">
+            <label>Título<input name="messagesTitle" /></label>
+            <label>Nome<input name="messageNameLabel" /></label>
+            <label>E-mail<input name="messageEmailLabel" /></label>
+            <label>Recado<input name="messageTextLabel" /></label>
+            <label>Botão<input name="messageButton" /></label>
+            <label>Título vazio<input name="emptyMessageTitle" /></label>
+          </div>
+          <label>Texto vazio<input name="emptyMessageBody" /></label>
+        </section>
+
+        <section class="editor-panel">
+          <h2>Imagens</h2>
+          <div class="image-editor-grid" id="image-editor-grid"></div>
+        </section>
+
+        <section class="editor-panel">
+          <h2>Aparência</h2>
+          <div class="editor-grid color-grid">
+            <label>Papel<input name="colors.paper" type="color" /></label>
+            <label>Papel quente<input name="colors.paperWarm" type="color" /></label>
+            <label>Texto<input name="colors.ink" type="color" /></label>
+            <label>Verde<input name="colors.sageDark" type="color" /></label>
+            <label>Terracota<input name="colors.clay" type="color" /></label>
+            <label>Azul moldura<input name="colors.tileBlue" type="color" /></label>
+            <label>Azul escuro<input name="colors.tileBlueDark" type="color" /></label>
+            <label>Creme moldura<input name="colors.tileCream" type="color" /></label>
+          </div>
+          <label>
+            Moldura das imagens
+            <select name="frameStyle">
+              <option value="none">Sem moldura</option>
+              <option value="azulejo">Azulejo azul</option>
+              <option value="simple">Fina e simples</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="editor-panel editor-panel--tools">
+          <h2>Arquivo</h2>
+          <div class="editor-actions editor-actions--left">
+            <button class="button" type="submit">Salvar alterações</button>
+            <button class="button button--ghost" type="button" id="export-config">Exportar</button>
+            <label class="button button--ghost import-button">
+              Importar
+              <input id="import-config" type="file" accept="application/json" />
+            </label>
+            <button class="button button--ghost" type="button" id="reset-config">Restaurar padrão</button>
+          </div>
+          <p class="editor-status" id="editor-status" role="status"></p>
+        </section>
+      </form>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./config.js"></script>
+    <script src="./supabase-config.js"></script>
+    <script src="./supabase-data.js"></script>
+    <script src="./editor.js"></script>
+  </body>
+</html>

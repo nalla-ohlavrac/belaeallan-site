@@ -1,0 +1,4 @@
+window.WEDDING_SUPABASE = {
+  url: "sb_publishable_OJkDkNVsl_A4eYqfYtqaKw_FpApPiUV",
+  anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsb2F3ZmV2aWhveXhvdW1ncWtnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMzk4NDcsImV4cCI6MjA5NzcxNTg0N30.jswb6nAv2lHpGNJ_C42L6bTbKHtGJ61-GlXEgpaYjjA",
+};

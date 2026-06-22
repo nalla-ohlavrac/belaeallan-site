@@ -1,0 +1,193 @@
+.editor-page {
+  background: linear-gradient(180deg, var(--paper), #fffaf2);
+}
+
+.editor-page:not(.is-unlocked) .editor-header,
+.editor-page:not(.is-unlocked) .editor-shell {
+  display: none;
+}
+
+.editor-page.is-unlocked .editor-login {
+  display: none;
+}
+
+.editor-login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.editor-login__box {
+  width: min(94vw, 460px);
+  padding: clamp(1.4rem, 4vw, 2rem);
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 246, 0.88);
+}
+
+.editor-login__box h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(3rem, 10vw, 5.6rem);
+}
+
+.editor-login__box .button {
+  width: 100%;
+}
+
+.editor-header {
+  width: min(1180px, 94vw);
+  margin: 0 auto;
+  padding: 2rem 0 1.25rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.editor-header h1 {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+}
+
+.editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.editor-actions .button {
+  margin-top: 0;
+}
+
+.editor-actions--left {
+  justify-content: flex-start;
+}
+
+.editor-shell {
+  width: min(1180px, 94vw);
+  margin: 0 auto;
+  padding: 2rem 0 5rem;
+}
+
+.editor-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.editor-panel {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 246, 0.78);
+}
+
+.editor-panel h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.editor-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.editor-form label {
+  margin: 0 0 1rem;
+}
+
+.editor-form label:last-child {
+  margin-bottom: 0;
+}
+
+.editor-form select {
+  width: 100%;
+  border: 1px solid rgba(100, 112, 85, 0.42);
+  background: rgba(255, 252, 246, 0.88);
+  color: var(--ink);
+  font: 1.2rem var(--body);
+  padding: 0.8rem 0.9rem;
+}
+
+.color-grid input {
+  min-height: 3rem;
+  padding: 0.25rem;
+}
+
+.image-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.image-control {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.image-control img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 0;
+  background: var(--paper-warm);
+}
+
+.image-control input[type="file"] {
+  padding: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.import-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.import-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.editor-status {
+  min-height: 1.6rem;
+  margin: 1rem 0 0;
+  color: var(--clay);
+  font-weight: 600;
+}
+
+.editor-help {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 920px) {
+  .editor-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .editor-actions {
+    justify-content: flex-start;
+  }
+
+  .image-editor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .editor-grid,
+  .image-editor-grid {
+    grid-template-columns: 1fr;
+  }
+}
